@@ -39,7 +39,7 @@ def get_symbol():
         if symbol_valid(symbol):
             return symbol
         else:
-            print("Moneda incorrecta espartano, AUU AUU AUUU !!!")
+            print("Moneda incorrecta espartano")
 
 def symbol_valid(symbol):
     # Aquí puedes agregar lógica adicional para validar el símbolo de la moneda según tus necesidades
@@ -54,7 +54,7 @@ while True:
 
     try:
         # Obtener los datos históricos de precios
-        prices, timestamps = get_historical_klines(symbol, '5m', limit)
+        prices, timestamps = get_historical_klines(symbol, '1h', limit)
 
         # Crear el dataframe con los datos históricos
         df = pd.DataFrame(prices, columns=['timestamp', 'open', 'high', 'low', 'close'])
