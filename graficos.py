@@ -127,4 +127,4 @@ while True:
         clear_console()
 
     except BinanceAPIException as e:
-        print("Moneda incorrecta espartano, AUU AUU AUUU !!!")
+        print("Error !!!")
