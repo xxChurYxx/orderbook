@@ -39,7 +39,7 @@ def get_symbol():
         if symbol_valid(symbol):
             return symbol
         else:
-            print("Moneda incorrecta espartano")
+            print("Moneda incorrecta espartano, AUU AUU AUUU !!!")
 
 def symbol_valid(symbol):
     # Aquí puedes agregar lógica adicional para validar el símbolo de la moneda según tus necesidades
@@ -54,7 +54,7 @@ while True:
 
     try:
         # Obtener los datos históricos de precios
-        prices, timestamps = get_historical_klines(symbol, '60m', limit)
+        prices, timestamps = get_historical_klines(symbol, '5m', limit)
 
         # Crear el dataframe con los datos históricos
         df = pd.DataFrame(prices, columns=['timestamp', 'open', 'high', 'low', 'close'])
@@ -74,7 +74,7 @@ while True:
         orderbook = client.futures_order_book(symbol=symbol)
 
         # Obtener los precios y volúmenes de las órdenes de compra y venta dentro del rango
-        range_percentage = float(input("Ingresa el porcentaje de rango recomiendo de 2 hacia adelante: ")) / 100
+        range_percentage = float(input("Ingresa el porcentaje de rango (ejemplo: 1 para 1%): ")) / 100
         average_price = df['close'].mean()
         range_low = average_price * (1 - range_percentage)
         range_high = average_price * (1 + range_percentage)
@@ -127,4 +127,4 @@ while True:
         clear_console()
 
     except BinanceAPIException as e:
-        print("Moneda incorrecta espartano")
+        print("Moneda incorrecta espartano, AUU AUU AUUU !!!")
